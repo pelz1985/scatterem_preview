@@ -1,0 +1,54 @@
+accelerator: cpu
+devices: 1
+losses_log_file: losses.csv
+meta4d:
+  E_ev: 80000.0
+  aberrations:
+  - 15.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  alpha_rad: 0.05
+  defocus_guess_angstrom: -15.0
+  rotation_deg: 0.0
+  sample_thickness_guess_angstrom: 0.0
+  sampling:
+  - 0.9962790608406067
+  - 0.9962790608406067
+  - 0.25093370906446977
+  - 0.25093370906446977
+  shape:
+  - 8
+  - 8
+  - 32
+  - 32
+  units:
+  - A
+  - A
+  - A^-1
+  - A^-1
+  wavelength: 0.04175716056489365
+ptychography:
+  batch_size: 1
+  do_subpix_shift: true
+  dr_learning_rate: 0.01
+  fix_probe_norm: false
+  learning_rate: 0.01
+  margin_probes: 0
+  max_epochs: 1
+  object_learning_rate: 0.01
+  object_model: pixels
+  optimize_dr_start: 2222
+  optimize_probe_start: 2222
+  optimizer_type: SGD
+  position_correction_start_epoch: 2222
+  probe_learning_rate: 0.01
+  probe_penalty: 0.01

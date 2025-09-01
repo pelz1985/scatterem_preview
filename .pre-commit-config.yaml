@@ -1,0 +1,27 @@
+exclude: "^(tests/|build/|dist/|\\.eggs/|\\.git/|\\.venv/|venv/|env/)"
+repos:
+  - repo: https://github.com/psf/black
+    rev: 25.1.0
+    hooks:
+      - id: black
+        # Adapt to your Python version:
+        language_version: python3
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.0
+    hooks:
+      - id: ruff
+        args: 
+          - --fix
+          - --exit-non-zero-on-fix
+          - --ignore=E501,F401          
+          - --exclude=.venv,.git,build,dist,.eggs,*.egg-info,__pycache__,.pytest_cache
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: .venv/bin/pytest
+        language: system
+        pass_filenames: false
+        always_run: true
+        args: ["test/test_single_slice_ptychography.py::test_single_slice_ptychography", "-v"]
